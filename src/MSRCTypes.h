@@ -30,14 +30,12 @@ constexpr uint8_t  MSRC_CRC_SIZE    = 2;
 constexpr size_t   MSRC_MAX_PAYLOAD = 64;
 
 enum class MSRCPacketType : uint8_t {
-    RTS  = 0x01,   // master → slave: request to send
-    CTS  = 0x02,   // slave  → master: clear to send
-    // NACK is sent for ANY rejection: slave busy, bad magic, CRC mismatch,
-    // or malformed header. The master does not need to know the reason.
-    NACK = 0x03,
-    DATA = 0x04,   // either direction: message fragment
-    ACK  = 0x05,   // receiver → sender: fragment acknowledged
-    HB   = 0x06,   // heartbeat (either direction)
+    RTS     = 0x01,   // master → slave: request to send
+    CTS     = 0x02,   // slave  → master: clear to send
+    ACK     = 0x03,
+    NACK    = 0x04,
+    COMMAND = 0x05,
+    STATUS  = 0x06,
 };
 
 struct MSRCPacket {

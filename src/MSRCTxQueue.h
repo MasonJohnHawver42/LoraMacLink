@@ -81,6 +81,14 @@ public:
         return e;
     }
 
+    // Discard all staged fragments (used when a send attempt is abandoned).
+    void reset() {
+        xSemaphoreTake(_lock, portMAX_DELAY);
+        _count = 0;
+        _next  = 0;
+        xSemaphoreGive(_lock);
+    }
+
 private:
     // Max fragments = MSRC_MAX_MESSAGE / MSRC_MAX_PAYLOAD = 512/64 = 8
     static constexpr uint8_t MAX_FRAGS = MSRC_MAX_MESSAGE / MSRC_MAX_PAYLOAD;
