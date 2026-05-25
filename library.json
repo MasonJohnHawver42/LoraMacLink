@@ -1,7 +1,7 @@
 {
-  "name": "MSRC",
-  "version": "0.1.0",
-  "description": "Master-Slave Radio Control protocol library over RadioLib for Heltec ESP32 V3 (SX1262)",
+  "name": "LML",
+  "version": "0.2.0",
+  "description": "LoRa MAC Link — ISR-driven, FreeRTOS-queue-backed P2P MAC for Heltec ESP32 V3 (SX1262)",
   "keywords": ["lora", "radiolib", "sx1262", "heltec", "protocol"],
   "authors": {
     "name": "MSRC Contributors"
