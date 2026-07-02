@@ -44,6 +44,11 @@ public:
     // len > LML_MAX_MESSAGE.
     LMLError queue_tx(const uint8_t *data, size_t len);
 
+    // Thread-safe: drop any not-yet-sent message from the TX queue so the next
+    // queue_tx() is accepted. Does NOT abort an exchange already on the wire —
+    // if one is mid-flight the state machine resolves it to Standby on its own.
+    void clear_tx();
+
     // App task reads from here.
     QueueHandle_t rx_queue;
 

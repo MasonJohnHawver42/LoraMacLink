@@ -419,4 +419,9 @@ LMLError P2PAsync::queue_tx(const uint8_t *data, size_t len) {
     return err;
 }
 
+void P2PAsync::clear_tx() {
+    Serial.println("[lml] clear_tx");
+    _tx.reset();
+}
+
 } // namespace LML
